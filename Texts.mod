@@ -90,6 +90,7 @@ MODULE Texts;
     VAR i : LONGINT;
   BEGIN
     i := t.last.index;
+    (* If supported use WHILE - ELSIF *)
     LOOP IF i < pos DIV blockSize THEN
       t.last := t.last.next;
       INC(i)
@@ -156,7 +157,7 @@ MODULE Texts;
     GetBlockAt(t, start);
     i := 0;
     p := start MOD blockSize;
-    (* If supported use while - elsif *)
+    (* If supported use WHILE - ELSIF *)
     LOOP IF (p < LEN(t.last.part)) & (i < offset) THEN
       out[i] := t.last.part[p];
       INC(p);
